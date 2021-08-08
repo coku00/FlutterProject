@@ -1,0 +1,41 @@
+group 'com.tmt.flutter_plugin_aar'
+version '1.0'
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+
+apply plugin: 'com.android.library'
+apply from: './aar_tools.gradle'
+
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 16
+    }
+
+}
+
+dependencies {
+
+    compileOnly fileTree(dir: "libs", include: ['*.aar'])
+}
+
+
+
